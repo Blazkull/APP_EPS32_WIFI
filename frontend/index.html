@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control Motor Stepper</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <h1><i class="fas fa-microchip"></i> Sistema de Control Motor Stepper</h1>
+            <p>Dashboard en tiempo real — Datos provenientes de conexión directa a ThingSpeak</p>
+
+            <div class="status-badge">
+                <span class="status-indicator"></span>
+                <span>Sistema en línea</span>
+                <span>•</span>
+                <span id="updateTime">Actualizando...</span>
+            </div>
+        </header>
+
+
+        <!-- ===================== -->
+        <!-- FILA 1: ESTADO GLOBAL -->
+        <!-- ===================== -->
+        <section class="kpi-grid">
+
+            <!-- HEALTH -->
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-heartbeat"></i></div>
+                <h3>Health del Dispositivo</h3>
+                <div class="kpi-value" id="healthValue">-</div>
+            </div>
+
+            <!-- ESTADO MOTOR -->
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-gear"></i></div>
+                <h3>Estado del Motor</h3>
+                <div class="kpi-value" id="motorStateValue">-</div>
+            </div>
+
+            <!-- ESTADO LED -->
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Estado LED</h3>
+                <div class="kpi-value" id="ledStateValue">-</div>
+            </div>
+
+        </section>
+
+
+        <!-- ===================== -->
+        <!-- FILA 2: MÉTRICAS -->
+        <!-- ===================== -->
+        <section class="kpi-grid">
+
+            <!-- GIROS DERECHA -->
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-rotate-right"></i></div>
+                <h3>Giros Derecha (Hora)</h3>
+                <div class="kpi-value" id="rightRotValue">-</div>
+            </div>
+
+            <!-- GIROS IZQUIERDA -->
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-rotate-left"></i></div>
+                <h3>Giros Izquierda (Hora)</h3>
+                <div class="kpi-value" id="leftRotValue">-</div>
+            </div>
+            
+
+
+            <!-- PETICIONES USUARIO -->
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-user"></i></div>
+                <h3>Peticiones Usuario</h3>
+                <div class="kpi-value" id="userReqValue">-</div>
+            </div>
+
+
+        </section>
+
+
+        <!-- ===================== -->
+        <!-- GRÁFICOS PRINCIPALES -->
+        <!-- ===================== -->
+        <section class="charts-grid">
+
+            <!-- FIELD 1 -->
+            <div class="chart-card">
+                <h2>Estado Motor</h2>
+                <canvas id="chart_motorState"></canvas>
+            </div>
+
+            <!-- FIELD 2 -->
+            <div class="chart-card">
+                <h2>Progreso del Giro Actual</h2>
+                <canvas id="chart_motorProgress"></canvas>
+            </div>
+
+            <!-- FIELD 3 -->
+            <div class="chart-card">
+                <h2>Estado LED</h2>
+                <canvas id="chart_ledState"></canvas>
+            </div>
+
+            <!-- FIELD 4 -->
+            <div class="chart-card">
+                <h2>Giros Derecha</h2>
+                <canvas id="chart_rightRot"></canvas>
+            </div>
+
+            <!-- FIELD 5 -->
+            <div class="chart-card">
+                <h2>Giros Izquierda</h2>
+                <canvas id="chart_leftRot"></canvas>
+            </div>
+
+            <!-- FIELD 6 -->
+            <div class="chart-card">
+                <h2>Estado del Dispositivo</h2>
+                <canvas id="chart_health"></canvas>
+            </div>
+
+            <!-- FIELD 7 -->
+            <div class="chart-card">
+                <h2>Peticiones Usuario</h2>
+                <canvas id="chart_userReq"></canvas>
+            </div>
+
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>&copy; 2024-2025 Sistema de Control Motor Stepper</p>
+            <p>Canal ThingSpeak ID: <strong>3163848</strong></p>
+        </footer>
+    </div>
+
+    <!-- JS -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>

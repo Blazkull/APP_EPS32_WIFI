@@ -1,0 +1,200 @@
+/* =============================== */
+/* VARIABLES DE TEMA - NEON SHADCN */
+/* =============================== */
+:root {
+    --bg: #0f0f0f;
+    --bg-card: #161616;
+    --bg-hover: #1f1f1f;
+    --border: #2c2c2c;
+
+    --text-primary: #e5e5e5;
+    --text-secondary: #9ca3af;
+
+    --neon: #4ADE80; /* Verde NEON */
+    --neon-soft: rgba(74, 222, 128, 0.35);
+    --radius: 14px;
+    --shadow-neon: 0 0 12px rgba(74, 222, 128, 0.4);
+}
+
+/* =============================== */
+/* GLOBAL                         */
+/* =============================== */
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--text-primary);
+}
+
+.container {
+    max-width: 1500px;
+    margin: auto;
+    padding: 2rem;
+}
+
+/* =============================== */
+/* HEADER                         */
+/* =============================== */
+.header {
+    text-align: center;
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 20px rgba(0,0,0,.4);
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2rem;
+    background: linear-gradient(90deg, var(--neon), #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.status-badge {
+    margin-top: .8rem;
+    display: inline-flex;
+    gap: .5rem;
+    background: #1c1c1c;
+    padding: .4rem .9rem;
+    border-radius: var(--radius);
+    font-size: .9rem;
+    color: var(--text-secondary);
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    background: var(--neon);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--neon);
+}
+
+/* =============================== */
+/* KPI GRID                       */
+/* =============================== */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.kpi-card:hover {
+    background: var(--bg-hover);
+    border-color: var(--neon);
+    box-shadow: var(--shadow-neon);
+}
+
+.kpi-icon {
+    font-size: 2rem;
+    margin-bottom: .6rem;
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--neon-soft);
+}
+
+.kpi-card h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: .3rem;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    min-height: 32px;
+}
+
+/* =============================== */
+/* CHARTS GRID                    */
+/* =============================== */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+    gap: 1.7rem;
+}
+
+/* =============================== */
+/* CHART CARD                     */
+/* =============================== */
+.chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    transition: .3s ease;
+}
+
+.chart-card:hover {
+    background: var(--bg-hover);
+    border-color: var(--neon);
+    box-shadow: var(--shadow-neon);
+}
+
+.chart-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--neon);
+    font-weight: 600;
+    text-shadow: 0 0 6px var(--neon-soft);
+}
+
+/* =============================== */
+/* CANVAS                         */
+/* =============================== */
+.chart-card canvas {
+    width: 100% !important;
+    height: 260px !important; /* FIX: evita crecimiento infinito */
+    display: block;
+}
+
+/* =============================== */
+/* FOOTER                         */
+/* =============================== */
+.footer {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-size: .9rem;
+    color: var(--text-secondary);
+}
+
+/* =============================== */
+/* SCROLLBAR                      */
+/* =============================== */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1c1c1c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon);
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--neon-soft);
+}
+
+/* =============================== */
+/* RESPONSIVE                     */
+/* =============================== */
+@media(max-width: 450px) {
+    .chart-card canvas {
+        height: 200px !important;
+    }
+}
